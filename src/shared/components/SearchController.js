@@ -1,4 +1,4 @@
-import search from '../../sass/search.css';
+import foo from '../../sass/search.scss';
 import React from "react";
 
 export default class SearchController extends React.Component {  

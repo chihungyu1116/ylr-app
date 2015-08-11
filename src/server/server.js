@@ -5,7 +5,7 @@ const app = express();
  
 // set up Jade
 app.set('views', './views');  
-app.set('views', './public');
+// app.set('views', './public');
 app.set('view engine', 'jade');
  
 import routes from "../shared/routes";
