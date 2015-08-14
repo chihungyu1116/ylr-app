@@ -5,15 +5,14 @@ const app = express();
  
 // set up Jade
 app.set('views', './views');  
-// app.set('views', './public');
 app.set('view engine', 'jade');
  
 import routes from "../shared/routes";
  
 app.get('/*', function (req, res) {  
-  Router.run(routes, req.url, Handler => {
-    let content = React.renderToString(<Handler />);
-    res.render('index', { content: content });
+  Router.run(routes, req.url, (Handler, state) => {
+    let html = React.renderToString(<Handler/>);
+    res.render('index', { html: html });
   });
 });
  

@@ -9,7 +9,7 @@ module.exports = {
     './src/client/entry',
   ],
   output: {
-    path: __dirname + '/public/',
+    path: __dirname + '/public',
     filename: 'app.js',
     publicPath: 'http://localhost:8081/assets/',
   },

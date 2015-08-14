@@ -1,11 +1,14 @@
 import React from "react";
+import {Link} from "react-router";
  
 export default class HeaderController extends React.Component {  
   render() {
     return (
-      <div>
-        <h1>Header</h1>
-      </div>
+      <nav>
+        <Link to='/'>Ylr Travel</Link>
+        <Link to="/user">User</Link>
+        <Link to="/about">About</Link>
+      </nav>
     )
   }
 }

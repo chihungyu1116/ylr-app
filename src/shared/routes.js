@@ -8,11 +8,10 @@ import ForumController from "./components/ForumController";
 import FAQController from "./components/FAQController";
  
 export default (  
-  <Route path="/" handler={ AppController }>
+  <Route name="app" path="/" handler={ AppController }>
     <DefaultRoute handler={ HomeController }/>
-    
-    <Route path="about" handler={ AboutController }/>
-    <Route path="forum" handler={ ForumController }/>
-    <Route path="faq" handler={ FAQController }/>
+    <Route name="about" path="about" handler={ AboutController }/>
+    <Route name="forum" path="forum" handler={ ForumController }/>
+    <Route name="faq" path="faq" handler={ FAQController }/>
   </Route>
 );
