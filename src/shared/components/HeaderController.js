@@ -6,7 +6,7 @@ export default class HeaderController extends React.Component {
     return (
       <nav>
         <Link to='/'>Ylr</Link>
-        <Link to="/user-page">User</Link>
+        <Link to="/user">User</Link>
       </nav>
     )
   }
