@@ -4,14 +4,14 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {  
   devtool: 'source-map',
   entry: [
-    'webpack-dev-server/client?http://localhost:8081',
+    'webpack-dev-server/client?http://localhost:8081/',
     'webpack/hot/only-dev-server',
     './src/client/entry',
   ],
   output: {
-    path: __dirname + '/assets',
+    path: __dirname + '/public/',
     filename: 'app.js',
-    publicPath: '/assets/',
+    publicPath: 'http://localhost:8081/assets/',
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),

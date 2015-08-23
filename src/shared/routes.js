@@ -11,7 +11,7 @@ import UserController from "./components/UserController";
 export default (  
 <Route name="app-view" path="/" handler={ AppController }>
   <Route
-    name="home-view" 
+    name="home-view"
     path="/"
     handler={ HomeController } />
   <Route

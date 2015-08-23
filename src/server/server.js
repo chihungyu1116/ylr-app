@@ -41,13 +41,17 @@ app.set('views', './views');
 app.set('view engine', 'jade');
  
 import routes from "../shared/routes";
- 
+
 app.get('/*', (req, res) => {
   Router.run(routes, req.url, (Handler, state) => {
-    let html = React.renderToString(<Handler/>);
-    res.render('index', { html: html });  
+    if(state.routes.length){
+      let html = React.renderToString(<Handler/>);
+      res.render('index', { html: html });  
+    }
   });
 });
+
+
 
 var server = app.listen(3000, () => {  
   var host = server.address().address;
