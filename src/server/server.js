@@ -4,36 +4,7 @@ import Router from "react-router";
 import mysql from "mysql";
 import _ from "underscore";
 
-const app = express();
-
-// const connection = mysql.createConnection({
-//   host: 'localhost',
-//   user: 'root',
-//   password: '',
-//   database: 'app'
-// });
-
-// // Data Logic
-
-// connection.connect(function (err) {
-//   if (err) {
-//     console.log('Error connecting database ... \n\n');
-//   } else {
-//     console.log('Database is connected ... \n\n');
-//   }
-// })
-
-// app.get('/attractions/:id', function (req, res) {
-//   let id = req.params.id
-//   connection.query(`select * from attractions where id = ${id}`, req.body, (err, rows, fields) => {
-//     if (err) {
-//       throw err;
-//     } else {
-//       res.json(rows)
-//     }
-//   })
-// });
- 
+const app = express(); 
 app.use('/public', express.static('public'));
 
 // set up Jade
@@ -47,11 +18,40 @@ app.get('/*', (req, res) => {
     if(state.routes.length){
       let html = React.renderToString(<Handler/>);
       res.render('index', { html: html });  
+    } else {
+      next();
     }
   });
 });
 
 
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'app'
+});
+
+// Data Logic
+
+connection.connect(function (err) {
+  if (err) {
+    console.log('Error connecting database ... \n\n');
+  } else {
+    console.log('Database is connected ... \n\n');
+  }
+})
+
+app.get('/attractions/:id', function (req, res) {
+  let id = req.params.id
+  connection.query(`select * from attractions where id = ${id}`, req.body, (err, rows, fields) => {
+    if (err) {
+      throw err;
+    } else {
+      res.json(rows)
+    }
+  })
+});
 
 var server = app.listen(3000, () => {  
   var host = server.address().address;
