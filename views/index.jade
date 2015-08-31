@@ -11,6 +11,8 @@ html
     link(rel='stylesheet', href='http://localhost:8081/assets/style.css')
       
   body
-    #react-app!=html
+    #root!=html
  
+  script.
+    window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};
   script(src='http://localhost:8081/assets/app.js')
